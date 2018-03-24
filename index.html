@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pixel Art Maker!</title>
+    <title>P4像素画</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
+    <script src="jquery-3.3.1.js"></script>
 </head>
 <body>
-    <h1>Lab: Pixel Art Maker</h1>
+    <h1>像素画</h1>
 
-    <h2>Choose Grid Size</h2>
+    <h2>选择画布大小</h2>
     <form id="sizePicker">
-        Grid Height:
+        画布高度:
         <input type="number" id="input_height" name="height" min="1" value="1">
-        Grid Width:
+        画布宽度:
         <input type="number" id="input_width" name="width" min="1" value="1">
-        <input type="submit">
+        <input type="submit" id="submit">
     </form>
 
-    <h2>Pick A Color</h2>
+    <h2>颜色</h2>
     <input type="color" id="colorPicker">
 
-    <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
+    <h2>绘画创意空间</h2>
+    <table id="pixel_canvas">
+    </table>
 
     <script src="designs.js"></script>
 </body>
 </html>
+<script>
+    // Select color input
+    let color = "#000";
+    // Select size input
+    let rowCount = ("#input_height").val();
+    let colCount = ("#input_width").val();
+    // When size is submitted by the user, call makeGrid()
+    function makeGrid() {
+
+    // Your code goes here!
+        for (let i=0;i<row;i++){
+            $("#pixel_canvas").append("<tr></tr>");
+            for (let j=0;j<col;j++){
+                $("#pixel_canvas").find("tr").append("<td></td>");
+            }
+        }
+        show();
+    }
+    $("#input_width").next().click(makeGrid());
+    
+    $(document).ready(function(){
+        $("[type='submit']").click(function(e){
+            e.preventDefault();
+            $('#pixel_canvas').append('<tr><td></td></tr>');
+            show();
+        });
+    });
+</script>
