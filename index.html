@@ -12,9 +12,9 @@
     <h2>选择画布大小</h2>
     <form id="sizePicker">
         画布高度:
-        <input type="number" id="input_height" name="height" min="1" value="1">
+        <input type="number" id="input_height" name="height" min="1" value="20">
         画布宽度:
-        <input type="number" id="input_width" name="width" min="1" value="1">
+        <input type="number" id="input_width" name="width" min="1" value="20">
         <input type="submit" id="submit">
     </form>
 
@@ -28,31 +28,3 @@
     <script src="designs.js"></script>
 </body>
 </html>
-<script>
-    // Select color input
-    let color = "#000";
-    // Select size input
-    let rowCount = ("#input_height").val();
-    let colCount = ("#input_width").val();
-    // When size is submitted by the user, call makeGrid()
-    function makeGrid() {
-
-    // Your code goes here!
-        for (let i=0;i<row;i++){
-            $("#pixel_canvas").append("<tr></tr>");
-            for (let j=0;j<col;j++){
-                $("#pixel_canvas").find("tr").append("<td></td>");
-            }
-        }
-        show();
-    }
-    $("#input_width").next().click(makeGrid());
-    
-    $(document).ready(function(){
-        $("[type='submit']").click(function(e){
-            e.preventDefault();
-            $('#pixel_canvas').append('<tr><td></td></tr>');
-            show();
-        });
-    });
-</script>
